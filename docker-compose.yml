@@ -20,7 +20,7 @@ services:
     volumes:
       - mysql:/var/lib/mysql/
     environment:
-      MYSQL_DATABASE: 'banco_teste'
+      MYSQL_DATABASE: 'luck_db'
       MYSQL_ROOT_PASSWORD: 'teste'
 volumes:
   mysql:
