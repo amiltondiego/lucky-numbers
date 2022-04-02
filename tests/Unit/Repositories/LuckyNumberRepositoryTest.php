@@ -16,8 +16,8 @@ class LuckyNumberRepositoryTest extends TestCase
 {
     public function testCreateSuccess()
     {
-        /** @var LuckyNumber */
-        $class = $this->mock(LuckyNumber::class, function (MockInterface $mock){
+        /** @var LuckyNumber $class */
+        $class = $this->mock(LuckyNumber::class, function (MockInterface $mock) {
             $mock->shouldReceive('refresh')->once();
             $mock->shouldReceive('setAttribute')->once();
             $mock->shouldReceive('save')->once()->andReturnTrue();
@@ -29,13 +29,12 @@ class LuckyNumberRepositoryTest extends TestCase
             1,
             2,
         ]));
-
     }
 
     public function testCreateFail()
     {
-        /** @var LuckyNumber */
-        $class = $this->mock(LuckyNumber::class, function (MockInterface $mock){
+        /** @var LuckyNumber $class */
+        $class = $this->mock(LuckyNumber::class, function (MockInterface $mock) {
             $mock->shouldReceive('refresh')->once();
             $mock->shouldReceive('setAttribute')->once();
             $mock->shouldReceive('save')->once()->andReturnFalse();
@@ -47,13 +46,12 @@ class LuckyNumberRepositoryTest extends TestCase
             1,
             2,
         ]));
-
     }
 
     public function testListWithData()
     {
-        /** @var LuckyNumber */
-        $class = $this->mock(LuckyNumber::class, function (MockInterface $mock){
+        /** @var LuckyNumber $class */
+        $class = $this->mock(LuckyNumber::class, function (MockInterface $mock) {
             $mock->shouldReceive('refresh')->once();
             $mock->shouldReceive('select')->once()->andReturnSelf();
             $mock->shouldReceive('orderBy')->once()->andReturnSelf();
@@ -67,13 +65,12 @@ class LuckyNumberRepositoryTest extends TestCase
         $return = $repository->list();
         $this->assertIsArray($return);
         $this->assertCount(1, $return);
-
     }
 
     public function testListWithoutData()
     {
-        /** @var LuckyNumber */
-        $class = $this->mock(LuckyNumber::class, function (MockInterface $mock){
+        /** @var LuckyNumber $class */
+        $class = $this->mock(LuckyNumber::class, function (MockInterface $mock) {
             $mock->shouldReceive('refresh')->once();
             $mock->shouldReceive('select')->once()->andReturnSelf();
             $mock->shouldReceive('orderBy')->once()->andReturnSelf();
@@ -87,6 +84,5 @@ class LuckyNumberRepositoryTest extends TestCase
         $return = $repository->list();
         $this->assertIsArray($return);
         $this->assertCount(0, $return);
-
     }
 }

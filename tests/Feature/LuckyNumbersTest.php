@@ -20,7 +20,7 @@ class LuckyNumbersTest extends TestCase
         $response->assertStatus(200);
         $response->assertJsonCount(6);
     }
-    
+
     public function testGetNumbersWithoutNumbers()
     {
         $response = $this->get('/');
